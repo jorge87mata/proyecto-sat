@@ -1,0 +1,19 @@
+para ejecutar el programa primero se tiene que instalar el MySQl
+crear una base de datos con los datos 
+nombre del proyecto: sat 
+nombre de la tabla : alumnos y otra con el nombre de asesor
+nombre de columnas:de la tabla de (alumnos):
+id, nombre, apPaterno, apMaterno, email, cel, carrera,generacion, 
+tem tesi,dir tesi, trabajo, lugar trabajo, horario trabajo
+ y para la de (asesor):
+id, nombre, cubicilo, correo electronico, horario de aesoria 
+cuando ya existe la bace de datos se ejecuta el programa  en la terminal de netbeans
+1.-se ejecuta el jframe con nombre logueo
+2.-en el campo alumnos se introduce lacontraseña : alumnos
+3.-en este trame se deve llenar con los datos de los alumnos para guardarlos en la bace de datos
+4.-se pulsa el boton regresa para volver a la pantalla logueo
+5.- se ingresa en el campo asesor contraseña : asesor 
+6.- en este frame se ingresa los datos de los  asesores una vez termindado el llenado de datos 
+se regresa a la oantalla de logueo
+7.- el boton crea lista de grupo abre el frame  de crea lista  en el cual se pude el nombre del asesor del grupo a crear donde de la lista de alumnos de selecciona el alumno y se ingresa a la lista  que tiene como restriccion minima de 10 alumnos y maxima de 25 ya seleccionado todos los alumnos se pasa al boton terminar lista
+8.-finalmente si se pulsa el boton terminar lista  el cual genera la lista de alumnos con los datos de un asesor 
