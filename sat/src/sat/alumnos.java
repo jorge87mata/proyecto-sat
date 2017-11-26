@@ -14,6 +14,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import java.awt.Checkbox;
 /**
  *
  * @author jorge.l
@@ -21,9 +22,10 @@ import javax.swing.JOptionPane;
 public class alumnos extends javax.swing.JFrame {
         Connection con=null;
         Statement stmt=null;
-        String var,var2;
+        String var,var2,var3;
         boolean bandera =true;
-        
+       //jCheck_exposicion.setSelected(false);
+      
     /**
      * Creates new form alumnos
      */
@@ -82,6 +84,13 @@ public class alumnos extends javax.swing.JFrame {
         txt_apPaterno = new javax.swing.JTextField();
         txt_apMaterno = new javax.swing.JTextField();
         btn_regresar = new javax.swing.JButton();
+        jCheck_exposicion = new javax.swing.JCheckBox();
+        jCheck_cartaCompromiso = new javax.swing.JCheckBox();
+        btn_consulta = new javax.swing.JButton();
+        btn_elimina = new javax.swing.JButton();
+        txt_id = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        btn_actualizar = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -181,7 +190,7 @@ public class alumnos extends javax.swing.JFrame {
                 btn_aceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 100, 30));
+        getContentPane().add(btn_aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 100, 30));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/UACM.png"))); // NOI18N
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 190, 90));
@@ -192,7 +201,7 @@ public class alumnos extends javax.swing.JFrame {
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         jLabel16.setText("campo obligatorio *");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 140, 20));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 140, 20));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         jLabel17.setText("*");
@@ -267,7 +276,49 @@ public class alumnos extends javax.swing.JFrame {
                 btn_regresarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, -1, 30));
+        getContentPane().add(btn_regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 450, 90, 30));
+
+        jCheck_exposicion.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        jCheck_exposicion.setText("exposicion de motivos");
+        getContentPane().add(jCheck_exposicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, -1, -1));
+
+        jCheck_cartaCompromiso.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        jCheck_cartaCompromiso.setText("carta compromiso");
+        getContentPane().add(jCheck_cartaCompromiso, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 160, -1));
+
+        btn_consulta.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        btn_consulta.setText("consulta");
+        btn_consulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_consultaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 100, 30));
+
+        btn_elimina.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        btn_elimina.setText("elimina");
+        btn_elimina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_elimina, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, 90, 30));
+
+        txt_id.setEditable(false);
+        getContentPane().add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 30, -1));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        jLabel12.setText("id:");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 30, 20));
+
+        btn_actualizar.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        btn_actualizar.setText("modifica");
+        btn_actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_actualizarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, -1, 30));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.jpg"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 510));
@@ -338,8 +389,11 @@ public class alumnos extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_trabajoKeyTyped
 
     private void btn_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aceptarActionPerformed
-       String cadena2,cadena3,cadena4,cadena5,cadena6,cadena7,cadena8,cadena9,cadena10,cadena11,cadena12,cadena13;
-        // obtener texto de los campos  de texfield
+       String cadena2,cadena3,cadena4,cadena5,cadena6,cadena7,cadena8,cadena9,cadena10,cadena11,cadena12,cadena13,cadena14;
+      int exp_motivos=0,carta_com=0;  
+      // obtener texto de los campos  de texfield
+      //boolean resultado=jCheck_exposicion
+        
         cadena2 = txt_nombre.getText();
         cadena3 = txt_apPaterno.getText();
         cadena4 = txt_apMaterno.getText();
@@ -352,6 +406,15 @@ public class alumnos extends javax.swing.JFrame {
         cadena11 = txt_trabajo.getText();
         cadena12 = txt_lugar_t.getText();
         cadena13 = txt_hora_t.getText();
+        if(jCheck_exposicion.isSelected()){
+            exp_motivos=1;
+        }else
+            exp_motivos=0;
+        if(jCheck_cartaCompromiso.isSelected()){
+            carta_com=1;
+        }else
+            carta_com=0;
+        
                       //revisar que los campos no esten vacios 
           
                     if (txt_nombre.getText().equals("") || (txt_apPaterno.getText().equals(""))
@@ -386,7 +449,7 @@ public class alumnos extends javax.swing.JFrame {
   
                   stmt = con.createStatement(); 
                   stmt.executeUpdate("INSERT INTO alumnos VALUES('" + 0 + "','"+cadena2+"','"+cadena3+"','"+cadena4+"','"+cadena5+"','"+cadena6+"','"+cadena7+"',"
-                          + "                                    '"+cadena8+"','"+cadena9+"','"+cadena10+"','"+cadena11+"','"+cadena12+"','"+cadena13+"')");
+                          + "'"+cadena8+"','"+cadena9+"','"+cadena10+"','"+cadena11+"','"+cadena12+"','"+cadena13+"','"+exp_motivos+"','"+carta_com+"')");
                   System.out.println("Los valores han sido agregados a la base de datos ");
                  
                    //exeption
@@ -417,6 +480,7 @@ public class alumnos extends javax.swing.JFrame {
         //inicializa datos despues de registrar            
         
         if(bandera==true){
+        this.txt_id.setText("");    
         this.txt_nombre.setText("");
         this.txt_apPaterno.setText("");
         this.txt_apMaterno.setText("");
@@ -429,6 +493,9 @@ public class alumnos extends javax.swing.JFrame {
         this.txt_trabajo.setText("");
         this.txt_lugar_t.setText("");
         this.txt_hora_t.setText("");
+        this.jCheck_exposicion.setSelected(false);
+        this.jCheck_cartaCompromiso.setSelected(false);
+        
         }
     }//GEN-LAST:event_btn_aceptarActionPerformed
 
@@ -438,6 +505,242 @@ public class alumnos extends javax.swing.JFrame {
         p.setVisible(true);//lo hace visible
                                    
     }//GEN-LAST:event_btn_regresarActionPerformed
+
+    private void btn_consultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultaActionPerformed
+       ResultSet rs = null; 
+         var = javax.swing.JOptionPane.showInputDialog(this,"nombre de el alumno","Consulta alumnos",javax.swing.JOptionPane.QUESTION_MESSAGE);
+        String sql="SELECT* FROM  alumnos WHERE nombre = '"+var+"'";
+        if(var == null)  
+        javax.swing.JOptionPane.showMessageDialog(this,"La accion fue cancelada","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+      else {   
+        if (var.equals("")) {
+            javax.swing.JOptionPane.showMessageDialog(this,"Ingresar el id del alumno","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        }else{
+        
+        try {
+            
+            String url = "jdbc:mysql://localhost:3306/Sat";
+            String usuario = "root";
+            String contraseña = "itachi";  
+            
+               Class.forName("com.mysql.jdbc.Driver").newInstance();
+               con = DriverManager.getConnection(url,usuario,contraseña);
+               if (con!= null)
+                   System.out.println("Se ha establecido una conexion a la base de datos"+"\n"+url);
+               
+               stmt = con.createStatement();
+                rs = stmt.executeQuery(sql);//variable que guarda info de la base de datos
+              
+            
+               while(rs.next()) {  
+                   
+                String id = rs.getString("id");
+                String nom = rs.getString("nombre");
+                String pat = rs.getString("apPaterno");
+                String mat = rs.getString("apMaterno");
+                String ema = rs.getString("email");
+                String cel = rs.getString("cel");
+                String carr = rs.getString("carrera");
+                String gen = rs.getString("generacion");
+                String ttes = rs.getString("tem tesi");
+                String dtes = rs.getString("dir tesi");
+                String tra = rs.getString("trabajo");
+                String exmot =rs.getString("exposicion de motivos");
+                int motivo = Integer.parseInt (exmot);
+                String cartcom=rs.getString("carta compromiso");
+                int carta = Integer.parseInt (cartcom);
+                 
+                   txt_id.setText(id);                            
+                   txt_nombre.setText(nom);
+                   txt_apPaterno.setText(pat);
+                   txt_apMaterno.setText(mat);
+                   txt_email.setText(ema);
+                   txt_cel.setText(cel);
+                   txt_carrera.setText(carr);
+                   txt_generacion.setText(gen);
+                   txt_tem_tesi.setText(ttes);
+                   txt_dir_tesi.setText(dtes);
+                   txt_trabajo.setText(tra);
+                   if(motivo==1){
+                   jCheck_exposicion.setSelected(true);
+                   }else{
+                   jCheck_exposicion.setSelected(false);
+                   }   
+                   
+                   if(carta==1){
+                   jCheck_cartaCompromiso.setSelected(true);
+                   }else{
+                   jCheck_cartaCompromiso.setSelected(false);
+                   } 
+               }
+               
+               
+        }
+        catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null,"Error al extraer los datos de la tabla");
+        }
+
+    }
+        
+        }
+    }//GEN-LAST:event_btn_consultaActionPerformed
+
+    private void btn_eliminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminaActionPerformed
+
+     ResultSet rs = null; 
+     var3 = javax.swing.JOptionPane.showInputDialog(this,"id a eliminar","elimina alumno",javax.swing.JOptionPane.QUESTION_MESSAGE);
+       String sql="DELETE FROM alumnos where id ='"+var3+"'";
+       // DELETE FROM alumnos where id =0;
+        if(var3 == null)  
+        javax.swing.JOptionPane.showMessageDialog(this,"La accion fue cancelada","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+      else {   
+        if (var3.equals("")) {
+            javax.swing.JOptionPane.showMessageDialog(this,"Ingresar el id a eliminar ","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        }else{
+        
+        try {
+            
+            String url = "jdbc:mysql://localhost:3306/Sat";
+            String usuario = "root";
+            String contraseña = "itachi";
+            
+             Class.forName("com.mysql.jdbc.Driver").newInstance(); 
+             con = DriverManager.getConnection(url,usuario,contraseña); 
+             if ( con != null ) 
+                    System.out.println("Se ha establecido una conexión a la base de datos " +  
+                                       "\n " + url ); 
+  
+                  stmt = con.createStatement(); 
+                  stmt.executeUpdate("DELETE FROM alumnos where id ='"+var3+"'");
+            
+            
+               javax.swing.JOptionPane.showMessageDialog(this,"alumno eliminado","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+               
+               
+        }
+        catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null,"Error al extraer los datos de la tabla");
+        }
+
+    }
+        
+        }
+         if(bandera==true){
+        this.txt_id.setText("");
+        this.txt_nombre.setText("");
+        this.txt_apPaterno.setText("");
+        this.txt_apMaterno.setText("");
+        this.txt_email.setText("");
+        this.txt_cel.setText("");
+        this.txt_carrera.setText("");
+        this.txt_generacion.setText("");
+        this.txt_tem_tesi.setText("");
+        this.txt_dir_tesi.setText("");
+        this.txt_trabajo.setText("");
+        this.txt_lugar_t.setText("");
+        this.txt_hora_t.setText("");
+        this.jCheck_exposicion.setSelected(false);
+        this.jCheck_cartaCompromiso.setSelected(false);
+         }
+        
+        
+    }//GEN-LAST:event_btn_eliminaActionPerformed
+
+    private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
+        String cadena1,cadena2,cadena3,cadena4,cadena5,cadena6,cadena7,cadena8,cadena9,cadena10,cadena11,cadena12,cadena13;
+      int exp_motivos=0,carta_com=0;
+      
+       cadena1 = txt_id.getText();
+       cadena2 = txt_nombre.getText();
+       cadena3 = txt_apPaterno.getText();
+       cadena4 = txt_apMaterno.getText();
+       cadena5 = txt_email.getText();
+       cadena6 = txt_cel.getText();
+       cadena7 = txt_carrera.getText();
+       cadena8 = txt_generacion.getText();
+       cadena9 = txt_tem_tesi.getText();
+       cadena10 = txt_dir_tesi.getText();
+       cadena11 = txt_trabajo.getText();
+       cadena12 = txt_lugar_t.getText();
+       cadena13 = txt_hora_t.getText();
+        if(jCheck_exposicion.isSelected()){
+            exp_motivos=1;
+        }else
+            exp_motivos=0;
+        if(jCheck_cartaCompromiso.isSelected()){
+            carta_com=1;
+        }else
+            carta_com=0;
+       
+     
+    
+     if (txt_nombre.getText().equals("")) {
+         
+         javax.swing.JOptionPane.showMessageDialog(this,"1-. Consulte el nombre del alumno\n 2-. Actualice el dato deseado en el campo correspondiente","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+     }
+     else {   
+     
+     try { 
+                  String url = "jdbc:mysql://localhost:3306/prueba_1"; 
+                  String usuario = "root"; 
+                  String contraseña = "itachi"; 
+                  
+                  Class.forName("com.mysql.jdbc.Driver").newInstance(); 
+                  con = DriverManager.getConnection(url,usuario,contraseña); 
+                  if ( con != null ) 
+                    System.out.println("Se ha establecido una conexión a la base de datos " +  
+                                       "\n " + url ); 
+  
+                  stmt = con.createStatement(); 
+                  stmt.executeUpdate("UPDATE  alumnos SET id= '"+cadena1+"' , nombre = '"+cadena2+"',apPaterno = '"+cadena3+"',apMaterno = '"+cadena4+"', email = '"+cadena5+"', cel = '"+cadena6+"',"
+                          + "carrera = '"+cadena7+"'generacion = '"+cadena8+"'tem tesi = '"+cadena9+"'dir tesi = '"+cadena10+
+                          "'trabajo = '"+cadena11+"'lugar trabajo = '"+cadena12+"'horario trabajo = '"+cadena13+"'exposicion de motivos = '"+exp_motivos+"'carta compromiso = '"+carta_com+"')");          
+                  
+                  System.out.println("Los valores han sido Actualizados"); 
+                  } 
+                  catch( SQLException e ) { 
+                      e.printStackTrace(); 
+                  } catch (ClassNotFoundException ex) { 
+            Logger.getLogger(alumnos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(alumnos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(alumnos.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+  
+              finally { 
+                  if ( con != null ) { 
+                      try    { 
+                          con.close(); 
+                          stmt.close(); 
+                      } catch( Exception e ) { 
+                          System.out.println( e.getMessage()); 
+                      } 
+                  } 
+     }
+     //javax.swing.JOptionPane.showMessageDialog(this,"Actualizado correctamente!","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+     } 
+        
+         if(bandera==true){
+        this.txt_id.setText("");
+        this.txt_nombre.setText("");
+        this.txt_apPaterno.setText("");
+        this.txt_apMaterno.setText("");
+        this.txt_email.setText("");
+        this.txt_cel.setText("");
+        this.txt_carrera.setText("");
+        this.txt_generacion.setText("");
+        this.txt_tem_tesi.setText("");
+        this.txt_dir_tesi.setText("");
+        this.txt_trabajo.setText("");
+        this.txt_lugar_t.setText("");
+        this.txt_hora_t.setText("");
+        this.jCheck_exposicion.setSelected(false);
+        this.jCheck_cartaCompromiso.setSelected(false);
+         }
+    }//GEN-LAST:event_btn_actualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -476,11 +779,17 @@ public class alumnos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_aceptar;
+    private javax.swing.JButton btn_actualizar;
+    private javax.swing.JButton btn_consulta;
+    private javax.swing.JButton btn_elimina;
     private javax.swing.JButton btn_regresar;
     private javax.swing.JLabel fondo;
+    private javax.swing.JCheckBox jCheck_cartaCompromiso;
+    private javax.swing.JCheckBox jCheck_exposicion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -511,6 +820,7 @@ public class alumnos extends javax.swing.JFrame {
     private javax.swing.JTextField txt_email;
     private javax.swing.JTextField txt_generacion;
     private javax.swing.JTextField txt_hora_t;
+    private javax.swing.JTextField txt_id;
     private javax.swing.JTextField txt_lugar_t;
     private javax.swing.JTextField txt_nombre;
     private javax.swing.JTextField txt_tem_tesi;

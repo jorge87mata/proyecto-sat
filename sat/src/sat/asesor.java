@@ -53,6 +53,7 @@ public class asesor extends javax.swing.JFrame {
         txt_cubo = new javax.swing.JTextField();
         txt_correo = new javax.swing.JTextField();
         btn_aceptar = new javax.swing.JButton();
+        crearLista = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,7 +67,7 @@ public class asesor extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 200, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        jLabel3.setText("correo electrpnico:");
+        jLabel3.setText("correo electronico:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 130, 20));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
@@ -102,7 +103,7 @@ public class asesor extends javax.swing.JFrame {
                 btn_regresaActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_regresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 90, 30));
+        getContentPane().add(btn_regresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 90, 30));
         getContentPane().add(txt_cubo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 130, -1));
         getContentPane().add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 130, -1));
 
@@ -113,7 +114,16 @@ public class asesor extends javax.swing.JFrame {
                 btn_aceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 90, 30));
+        getContentPane().add(btn_aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 90, 30));
+
+        crearLista.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        crearLista.setText("crear lista");
+        crearLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearListaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(crearLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 110, 30));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.jpg"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 440));
@@ -218,6 +228,12 @@ public class asesor extends javax.swing.JFrame {
                                                
     }//GEN-LAST:event_btn_regresaActionPerformed
 
+    private void crearListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearListaActionPerformed
+        this.dispose();
+        creaLista us= new creaLista();
+        us.setVisible(true);
+    }//GEN-LAST:event_crearListaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -256,6 +272,7 @@ public class asesor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_aceptar;
     private javax.swing.JButton btn_regresa;
+    private javax.swing.JButton crearLista;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

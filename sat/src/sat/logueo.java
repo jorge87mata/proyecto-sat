@@ -41,7 +41,6 @@ public class logueo extends javax.swing.JFrame {
         contra1 = new javax.swing.JPasswordField();
         contra2 = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
-        btn_creaLista = new javax.swing.JButton();
         btn_salir = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
@@ -86,15 +85,6 @@ public class logueo extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jLabel6.setText("registro de alumnos ");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 160, 30));
-
-        btn_creaLista.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        btn_creaLista.setText("crearl lista de grupo");
-        btn_creaLista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_creaListaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btn_creaLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 170, 30));
 
         btn_salir.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         btn_salir.setText("salir");
@@ -141,12 +131,6 @@ public class logueo extends javax.swing.JFrame {
          this.dispose();
     }//GEN-LAST:event_btn_salirActionPerformed
 
-    private void btn_creaListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_creaListaActionPerformed
-        this.dispose();
-        creaLista us= new creaLista();//instancia de la clase usuario
-        us.setVisible(true);
-    }//GEN-LAST:event_btn_creaListaActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -185,7 +169,6 @@ public class logueo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_alumnos;
     private javax.swing.JButton btn_asesor;
-    private javax.swing.JButton btn_creaLista;
     private javax.swing.JButton btn_salir;
     private javax.swing.JPasswordField contra1;
     private javax.swing.JPasswordField contra2;

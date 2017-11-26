@@ -21,9 +21,9 @@ public class creaLista extends javax.swing.JFrame {
            String var;
    Connection con = null;
    Statement stmt = null;
-   String titulos[] = {"id","nombre","apPaterno","carera"};
+   String titulos[] = {"id","nombre","apPaterno","carrera"};
    String fila[] = new String [10], filas1[]=new String[6], renglones[]=new String[6];
-   DefaultTableModel modelo,modelo2,modelo3;
+   DefaultTableModel modelo,modelo2,modelo3,modelo4,modelo5;
   int i;
     
     
@@ -37,12 +37,20 @@ public class creaLista extends javax.swing.JFrame {
         modelo2.addColumn("carrera");
         
         jTab_tablaLista.setModel(modelo2);
+        ////////////////////////////////////////////////////
+         modelo4= new DefaultTableModel();
+        modelo4.addColumn("id");
+        modelo4.addColumn("nombre");
+        modelo4.addColumn("cubicilo");
+        modelo4.addColumn("horario");
         
+        jTable_asesor.setModel(modelo4);
+        /////////////////////////////////////////////////////////
         
        
         
         this.setTitle(" crea lista de alumnos");
-        this.setLocation(335,100);
+        this.setLocation(40,50);
         this.setResizable(false);
         
         try {
@@ -90,6 +98,8 @@ public class creaLista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         btn_agregarAsesor = new javax.swing.JButton();
         txt_nomAsesor = new javax.swing.JTextField();
         txt_cubiculo = new javax.swing.JTextField();
@@ -126,37 +136,57 @@ public class creaLista extends javax.swing.JFrame {
         txt_id = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txt_terminarLista = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable_asesor = new javax.swing.JTable();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        txt_exp_motivos = new javax.swing.JTextField();
+        txt_cartaCompromiso = new javax.swing.JTextField();
         fondo = new javax.swing.JLabel();
+
+        jMenuItem1.setText("agregar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_agregarAsesor.setText("buscar asesor");
+        btn_agregarAsesor.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        btn_agregarAsesor.setText("detalles asesor");
         btn_agregarAsesor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_agregarAsesorActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_agregarAsesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, -1, -1));
+        getContentPane().add(btn_agregarAsesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 130, -1));
 
         txt_nomAsesor.setEditable(false);
-        getContentPane().add(txt_nomAsesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 110, -1));
+        getContentPane().add(txt_nomAsesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 110, -1));
 
         txt_cubiculo.setEditable(false);
-        getContentPane().add(txt_cubiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 100, -1));
+        getContentPane().add(txt_cubiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 100, -1));
 
         txt_horario.setEditable(false);
-        getContentPane().add(txt_horario, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 110, -1));
+        getContentPane().add(txt_horario, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 110, -1));
 
         txt_correo2.setEditable(false);
-        getContentPane().add(txt_correo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 110, -1));
+        getContentPane().add(txt_correo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, 130, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         jLabel2.setText("base de datos de aumnos");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 180, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 180, -1));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         jLabel3.setText("lista de alumnos para agregar");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, 200, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 220, -1));
 
         jtab_tablaGeneral.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -190,9 +220,10 @@ public class creaLista extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title4"
             }
         ));
+        jtab_tablaGeneral.setComponentPopupMenu(jPopupMenu1);
         jScrollPane1.setViewportView(jtab_tablaGeneral);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 350, 380));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 350, 380));
 
         jTab_tablaLista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -207,110 +238,162 @@ public class creaLista extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTab_tablaLista);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 350, 380));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 350, 380));
 
-        btn_buscaAlumno.setText("Busca alumno");
+        btn_buscaAlumno.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        btn_buscaAlumno.setText("detalles de alumno");
         btn_buscaAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_buscaAlumnoActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_buscaAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, -1, 30));
+        getContentPane().add(btn_buscaAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, -1, 30));
 
         txt_nom.setEditable(false);
-        getContentPane().add(txt_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 70, -1));
+        getContentPane().add(txt_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 570, 100, -1));
 
         txt_apepat.setEditable(false);
-        getContentPane().add(txt_apepat, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, 70, -1));
+        getContentPane().add(txt_apepat, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, 90, -1));
 
         txt_apmat.setEditable(false);
-        getContentPane().add(txt_apmat, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 70, -1));
+        getContentPane().add(txt_apmat, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 570, 90, -1));
 
         txt_correo.setEditable(false);
-        getContentPane().add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 510, 140, -1));
+        getContentPane().add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 570, 140, -1));
 
         txt_cel.setEditable(false);
-        getContentPane().add(txt_cel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 510, 80, -1));
+        getContentPane().add(txt_cel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 570, 80, -1));
 
         txt_crrera.setEditable(false);
-        getContentPane().add(txt_crrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 510, 70, -1));
+        getContentPane().add(txt_crrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 570, 70, -1));
 
         txt_generacion.setEditable(false);
-        getContentPane().add(txt_generacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 510, 70, -1));
+        getContentPane().add(txt_generacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 570, 70, -1));
 
         txt_tmtesi.setEditable(false);
-        getContentPane().add(txt_tmtesi, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 560, 120, -1));
+        getContentPane().add(txt_tmtesi, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 620, 120, -1));
 
         txt_dirtesi.setEditable(false);
-        getContentPane().add(txt_dirtesi, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 560, 120, -1));
+        getContentPane().add(txt_dirtesi, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 620, 120, -1));
 
         txt_trabajo.setEditable(false);
-        getContentPane().add(txt_trabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 560, 70, -1));
+        getContentPane().add(txt_trabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 620, 70, -1));
 
+        btn_agregarLista.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         btn_agregarLista.setText("agregar a lista");
         btn_agregarLista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_agregarListaActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_agregarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, -1, -1));
+        getContentPane().add(btn_agregarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 500, -1, -1));
 
+        btn_eliminarAlumno.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         btn_eliminarAlumno.setText("borrar de lista");
         btn_eliminarAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_eliminarAlumnoActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_eliminarAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 460, -1, -1));
+        getContentPane().add(btn_eliminarAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 500, -1, -1));
 
+        btn_borraTodo.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         btn_borraTodo.setText("borrar toda la lista");
         btn_borraTodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_borraTodoActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_borraTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 460, -1, -1));
+        getContentPane().add(btn_borraTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 500, -1, -1));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel1.setText("nombre");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 70, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 550, 80, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel4.setText("correo");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 490, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 550, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel5.setText("telefono");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 550, 60, -1));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel6.setText("carrera");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 490, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 550, 60, -1));
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel7.setText("generacion");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 490, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 550, 80, -1));
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel8.setText("tema de tesis");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 540, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 600, -1, -1));
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel9.setText("director de tesis");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 540, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 600, -1, -1));
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel10.setText("trabajo");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 540, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 600, -1, -1));
 
         txt_id.setEditable(false);
-        getContentPane().add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 480, 30, -1));
+        getContentPane().add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 570, 30, -1));
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel11.setText("id");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, 20, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, 30, 20));
 
+        txt_terminarLista.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         txt_terminarLista.setText("terminar lista");
         txt_terminarLista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_terminarListaActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_terminarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 120, -1));
+        getContentPane().add(txt_terminarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 80, 120, -1));
+
+        jTable_asesor.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane3.setViewportView(jTable_asesor);
+
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 110, 290, 380));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        jLabel12.setText("nombre");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 70, -1));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabel13.setText("cubiculo");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabel14.setText("horario");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, -1));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabel15.setText("correo");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, 50, -1));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabel16.setText("exposicion de motivos");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 600, 140, -1));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabel17.setText("carta compromiso");
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 600, 120, -1));
+        getContentPane().add(txt_exp_motivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 620, 90, -1));
+        getContentPane().add(txt_cartaCompromiso, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 620, 110, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.jpg"))); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, -1, 840, 620));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 670));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -324,7 +407,7 @@ public class creaLista extends javax.swing.JFrame {
         javax.swing.JOptionPane.showMessageDialog(this,"La accion fue cancelada","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
       else {   
         if (var.equals("")) {
-            javax.swing.JOptionPane.showMessageDialog(this,"Favor de ingresar el titulo de la pelicula \nque desea consultar","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            javax.swing.JOptionPane.showMessageDialog(this,"Ingresar el nombre del alumno \nque desea consultar","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
         }else{
         
         try {
@@ -355,7 +438,10 @@ public class creaLista extends javax.swing.JFrame {
                 String ttes = rs.getString("tem tesi");
                 String dtes = rs.getString("dir tesi");
                 String tra = rs.getString("trabajo");
-                
+                String exmot =rs.getString("exposicion de motivos");
+                int motivo = Integer.parseInt (exmot);
+                String cartcom=rs.getString("carta compromiso");
+                int carta = Integer.parseInt (cartcom);
                  
                    txt_id.setText(id);            
                    txt_nom.setText(nom);
@@ -368,7 +454,17 @@ public class creaLista extends javax.swing.JFrame {
                    txt_tmtesi.setText(ttes);
                    txt_dirtesi.setText(dtes);
                    txt_trabajo.setText(tra);
+                   if(motivo==1){
+                   txt_exp_motivos.setText("entregado");
+                   }else{
+                   txt_exp_motivos.setText("no entregado");
+                   }   
                    
+                   if(carta==1){
+                   txt_cartaCompromiso.setText("entregado");
+                   }else{
+                   txt_cartaCompromiso.setText("no entregado");
+                   } 
                }
                
                
@@ -385,13 +481,13 @@ public class creaLista extends javax.swing.JFrame {
 
     private void btn_agregarAsesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarAsesorActionPerformed
          ResultSet rs = null; 
-         var = javax.swing.JOptionPane.showInputDialog(this,"nombre de el alumno","Consulta alumnos",javax.swing.JOptionPane.QUESTION_MESSAGE);
+         var = javax.swing.JOptionPane.showInputDialog(this,"nombre de el asesor","Consulta asesor",javax.swing.JOptionPane.QUESTION_MESSAGE);
         String sql="SELECT* FROM  asesor WHERE nombre = '"+var+"'";
         if(var == null)  
         javax.swing.JOptionPane.showMessageDialog(this,"La accion fue cancelada","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
       else {   
         if (var.equals("")) {
-            javax.swing.JOptionPane.showMessageDialog(this,"Favor de ingresar el titulo de la pelicula \nque desea consultar","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            javax.swing.JOptionPane.showMessageDialog(this,"Favor de ingresar el nombre del asesor ","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
         }else{
         
         try {
@@ -444,7 +540,7 @@ public class creaLista extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"selecciona un alumno");
         }else{
          
-             String []Filas = new String[4];     
+             String []Filas = new String[6];     
                    Filas[0] = txt_id.getText();
                    
                    Filas[1] = txt_nom.getText();
@@ -452,6 +548,8 @@ public class creaLista extends javax.swing.JFrame {
                    Filas[2] = txt_apepat.getText();
                    
                    Filas[3] = txt_crrera.getText();
+                   
+                   //Filas[4] = 
                     
                     
                    txt_id.setText(null);            
@@ -489,24 +587,20 @@ public class creaLista extends javax.swing.JFrame {
     private void txt_terminarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_terminarListaActionPerformed
         int numRe=jTab_tablaLista.getRowCount();
          
-        if(numRe<1 || numRe>25){
-            JOptionPane.showMessageDialog(null,"nesesita minimo 10 alumnos");
+        if(numRe<1){
+            JOptionPane.showMessageDialog(null,"es necesario un minimo 10 alumnos");
         }else{
-            
-           
-           if( txt_nomAsesor.getText().equals("") ){
-              JOptionPane.showMessageDialog(null,"ingrese asesor");
+            if(numRe>25){
+            JOptionPane.showMessageDialog(null," esta excediendo el maximo 25 alumnos");
+        }else{
+           //if(motivo==0||carta==0 ){
+           //   JOptionPane.showMessageDialog(null,"el alumno no cumple con los requisitos");
  
-           }else{
+          // }else{
                this.dispose();
                lista us= new lista();//instancia de la clase
                us.setVisible(true);
-               lista.tx_nombre.setText(txt_nomAsesor.getText());
-               lista.tx_cubiculo.setText(txt_cubiculo.getText());
-               lista.tx_correo.setText(txt_correo2.getText());
-               lista.tx_hora.setText(txt_horario.getText());
-               /////////////////////////////////////////////////////////////////////////////////////
-               ///////////////////////////////////////////////////////////////////////////////////
+             
                 int numRenglon=jTab_tablaLista.getRowCount();
             
                modelo3= new DefaultTableModel();
@@ -514,6 +608,8 @@ public class creaLista extends javax.swing.JFrame {
                modelo3.addColumn("nombre");
                modelo3.addColumn("apPaterno");
                modelo3.addColumn("carrera");
+             
+              
         
                lista.jtab_tabla3.setModel(modelo3);                 
                
@@ -523,15 +619,105 @@ public class creaLista extends javax.swing.JFrame {
                fila[j] = modelo2.getValueAt(i,j);
                }
                modelo3.addRow(fila);
-}
+            }
+               modelo5= new DefaultTableModel(); 
+               modelo5.addColumn("id");
+               modelo5.addColumn("nombre");
+               modelo5.addColumn("cubiculo");
+               modelo5.addColumn("horario");
+               lista.jTab_tabla4.setModel(modelo5);
                
-              
+               for (int i=0;i<modelo4.getRowCount(); i++) {
+               Object filas [] = new Object [modelo4.getColumnCount()];
+               for (int j=0; j<modelo4.getColumnCount(); j++){
+               filas[j] = modelo4.getValueAt(i,j);
+               }
+               modelo5.addRow(filas);
+               
+               }
                
            }
-            
-            
+                 
+            //    }   //
         }
     }//GEN-LAST:event_txt_terminarListaActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+       int filaselec = jtab_tablaGeneral.getSelectedRow();
+      
+       String []alumno= new String[6];
+       alumno[0]= jtab_tablaGeneral.getValueAt(filaselec, 0).toString();
+       alumno[1]= jtab_tablaGeneral.getValueAt(filaselec, 1).toString();
+       alumno[2]= jtab_tablaGeneral.getValueAt(filaselec, 2).toString();
+       alumno[3]= jtab_tablaGeneral.getValueAt(filaselec, 3).toString();
+       
+        modelo2.addRow(alumno); 
+        
+   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   //busqueda de asesor para asignar
+   ResultSet rs = null;
+   var = javax.swing.JOptionPane.showInputDialog(this,"nombre de el asesor","Consulta asesor",javax.swing.JOptionPane.QUESTION_MESSAGE);
+        String sql="SELECT* FROM  asesor WHERE nombre = '"+var+"'";
+        if(var == null)  
+        javax.swing.JOptionPane.showMessageDialog(this,"La accion fue cancelada","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+      else {   
+        if (var.equals("")) {
+            javax.swing.JOptionPane.showMessageDialog(this,"Ingresar el nombre del asesor ","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        }else{
+        
+        try {
+            
+            String url = "jdbc:mysql://localhost:3306/Sat";
+            String usuario = "root";
+            String contraseña = "itachi";  
+            
+               Class.forName("com.mysql.jdbc.Driver").newInstance();
+               con = DriverManager.getConnection(url,usuario,contraseña);
+               if (con!= null)
+                   System.out.println("Se ha establecido una conexion a la base de datos"+"\n"+url);
+               
+               stmt = con.createStatement();
+                rs = stmt.executeQuery(sql);//variable que guarda info de la base de datos
+              
+            
+               while(rs.next()) {  
+                   
+                String id = rs.getString("id");
+                String nomA = rs.getString("nombre");
+                String cub = rs.getString("cubiculo");
+                String corA = rs.getString("correo electronico");
+                String hora = rs.getString("horario de asesoria");
+                
+                 
+                   txt_nomAsesor.setText(nomA);
+                   txt_cubiculo.setText(cub);
+                   txt_correo2.setText(corA);
+                   txt_horario.setText(hora);
+                   
+                   String []asesor= new String[6];            
+                   asesor[0]=id;
+                   asesor[1]=nomA;
+                   asesor[2]=cub;
+                   asesor[3]=hora;
+                   
+                   modelo4.addRow(asesor);
+                }
+               
+               
+        }
+        catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null,"Error al extraer los datos de la tabla");
+        }
+
+    }
+        
+        }          
+        
+   ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+   ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -578,6 +764,12 @@ public class creaLista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -586,18 +778,24 @@ public class creaLista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTab_tablaLista;
+    private javax.swing.JTable jTable_asesor;
     private javax.swing.JTable jtab_tablaGeneral;
     private javax.swing.JTextField txt_apepat;
     private javax.swing.JTextField txt_apmat;
+    private javax.swing.JTextField txt_cartaCompromiso;
     private javax.swing.JTextField txt_cel;
     private javax.swing.JTextField txt_correo;
     private javax.swing.JTextField txt_correo2;
     private javax.swing.JTextField txt_crrera;
     private javax.swing.JTextField txt_cubiculo;
     private javax.swing.JTextField txt_dirtesi;
+    private javax.swing.JTextField txt_exp_motivos;
     private javax.swing.JTextField txt_generacion;
     private javax.swing.JTextField txt_horario;
     private javax.swing.JTextField txt_id;

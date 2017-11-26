@@ -29,16 +29,10 @@ public class lista extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jtab_tabla3 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        tx_nombre = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        tx_cubiculo = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        tx_correo = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        tx_hora = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         salir = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTab_tabla4 = new javax.swing.JTable();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,49 +51,38 @@ public class lista extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jtab_tabla3);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 400, 430));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 370, 430));
 
-        jLabel1.setText("nombre de asesor ");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 120, 20));
-
-        tx_nombre.setEditable(false);
-        tx_nombre.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(tx_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 100, -1));
-
-        jLabel2.setText("cubiculo");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, 20));
-
-        tx_cubiculo.setEditable(false);
-        tx_cubiculo.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(tx_cubiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 90, -1));
-
-        jLabel3.setText("correo electronico");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 100, 20));
-
-        tx_correo.setEditable(false);
-        tx_correo.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(tx_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 120, -1));
-
-        jLabel4.setText("horario de asesoria");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 130, 20));
-
-        tx_hora.setEditable(false);
-        tx_hora.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(tx_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 90, -1));
-
+        jLabel5.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         jLabel5.setText("lista de alumnos");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, 20));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 220, 30));
 
+        salir.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         salir.setText("salir");
         salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 salirActionPerformed(evt);
             }
         });
-        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 530, -1, -1));
+        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 90, 30));
+
+        jTab_tabla4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(jTab_tabla4);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 340, 430));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.jpg"))); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 590));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -145,17 +128,11 @@ public class lista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel fondo;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    public static javax.swing.JTable jTab_tabla4;
     public static javax.swing.JTable jtab_tabla3;
     private javax.swing.JButton salir;
-    public static javax.swing.JTextField tx_correo;
-    public static javax.swing.JTextField tx_cubiculo;
-    public static javax.swing.JTextField tx_hora;
-    public static javax.swing.JTextField tx_nombre;
     // End of variables declaration//GEN-END:variables
 }
