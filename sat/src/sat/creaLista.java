@@ -75,7 +75,8 @@ public class creaLista extends javax.swing.JFrame {
                    fila[1] = rs.getString("nombre");
                    fila[2] = rs.getString("apPaterno");
                    fila[3] = rs.getString("carrera");
-                   
+                  String exmot= rs.getString("exposicion de motivos");
+                  String cartcom= rs.getString("carta compromiso");
                    modelo.addRow(fila); //agrega a las filas    
                }
                jtab_tablaGeneral.setModel(modelo);
@@ -135,7 +136,7 @@ public class creaLista extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         txt_id = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        txt_terminarLista = new javax.swing.JButton();
+        btn_terminarLista = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable_asesor = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
@@ -286,16 +287,16 @@ public class creaLista extends javax.swing.JFrame {
                 btn_agregarListaActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_agregarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 500, -1, -1));
+        getContentPane().add(btn_agregarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 500, -1, -1));
 
         btn_eliminarAlumno.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        btn_eliminarAlumno.setText("borrar de lista");
+        btn_eliminarAlumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ecommerce-pack.png"))); // NOI18N
         btn_eliminarAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_eliminarAlumnoActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_eliminarAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 500, -1, -1));
+        getContentPane().add(btn_eliminarAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 500, 20, 20));
 
         btn_borraTodo.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         btn_borraTodo.setText("borrar toda la lista");
@@ -304,7 +305,7 @@ public class creaLista extends javax.swing.JFrame {
                 btn_borraTodoActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_borraTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 500, -1, -1));
+        getContentPane().add(btn_borraTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 500, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel1.setText("nombre");
@@ -345,14 +346,14 @@ public class creaLista extends javax.swing.JFrame {
         jLabel11.setText("id");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, 30, 20));
 
-        txt_terminarLista.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        txt_terminarLista.setText("terminar lista");
-        txt_terminarLista.addActionListener(new java.awt.event.ActionListener() {
+        btn_terminarLista.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        btn_terminarLista.setText("terminar lista");
+        btn_terminarLista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_terminarListaActionPerformed(evt);
+                btn_terminarListaActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_terminarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 80, 120, -1));
+        getContentPane().add(btn_terminarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 80, 120, -1));
 
         jTable_asesor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -584,19 +585,28 @@ public class creaLista extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_borraTodoActionPerformed
 
-    private void txt_terminarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_terminarListaActionPerformed
+    private void btn_terminarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_terminarListaActionPerformed
         int numRe=jTab_tablaLista.getRowCount();
-         
+        int numRen=jTable_asesor.getRowCount();
+        if(numRe!=numRen){
+             JOptionPane.showMessageDialog(null,"la asignacion de asesor alumno no es la correcta");
+        }else{
         if(numRe<1){
             JOptionPane.showMessageDialog(null,"es necesario un minimo 10 alumnos");
         }else{
             if(numRe>25){
             JOptionPane.showMessageDialog(null," esta excediendo el maximo 25 alumnos");
-        }else{
-           //if(motivo==0||carta==0 ){
-           //   JOptionPane.showMessageDialog(null,"el alumno no cumple con los requisitos");
- 
-          // }else{
+       }else{
+ /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////               
+           // int motivo=Integer.parseInt(txt_exp_motivos.getText());
+           // int carta=Integer.parseInt(txt_cartaCompromiso.getText());        
+           String cad = "no entregado";
+           String cad2= txt_exp_motivos.getText();
+           String cad3=txt_cartaCompromiso.getText();
+       if(cad.equals(cad2)&&cad.equals(cad3)){
+              JOptionPane.showMessageDialog(null,"el alumno no cumple con los requisitos");
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      }else{
                this.dispose();
                lista us= new lista();//instancia de la clase
                us.setVisible(true);
@@ -638,9 +648,10 @@ public class creaLista extends javax.swing.JFrame {
                
            }
                  
-            //    }   //
+                }
+          }
         }
-    }//GEN-LAST:event_txt_terminarListaActionPerformed
+    }//GEN-LAST:event_btn_terminarListaActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
        int filaselec = jtab_tablaGeneral.getSelectedRow();
@@ -654,19 +665,10 @@ public class creaLista extends javax.swing.JFrame {
         modelo2.addRow(alumno); 
         
    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   
    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-   //busqueda de asesor para asignar
-   ResultSet rs = null;
-   var = javax.swing.JOptionPane.showInputDialog(this,"nombre de el asesor","Consulta asesor",javax.swing.JOptionPane.QUESTION_MESSAGE);
-        String sql="SELECT* FROM  asesor WHERE nombre = '"+var+"'";
-        if(var == null)  
-        javax.swing.JOptionPane.showMessageDialog(this,"La accion fue cancelada","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
-      else {   
-        if (var.equals("")) {
-            javax.swing.JOptionPane.showMessageDialog(this,"Ingresar el nombre del asesor ","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        }else{
-        
-        try {
+   //busqueda en tabla alumnos
+   try {
             
             String url = "jdbc:mysql://localhost:3306/Sat";
             String usuario = "root";
@@ -677,8 +679,76 @@ public class creaLista extends javax.swing.JFrame {
                if (con!= null)
                    System.out.println("Se ha establecido una conexion a la base de datos"+"\n"+url);
                
+               String sql="SELECT* FROM  alumnos WHERE id = '"+alumno[0]+"'";// u
                stmt = con.createStatement();
-                rs = stmt.executeQuery(sql);//variable que guarda info de la base de datos
+               ResultSet rsa = stmt.executeQuery(sql);
+               
+               modelo = new DefaultTableModel(null,titulos);
+            
+               while(rsa.next()) {  
+                   
+                  
+                  String exmot= rsa.getString("exposicion de motivos");
+                  String cartcom= rsa.getString("carta compromiso");
+                   
+                
+                  
+               
+               int motivo = Integer.parseInt (exmot);
+              
+                 int carta = Integer.parseInt (cartcom);
+               
+                if(motivo==1){
+                   txt_exp_motivos.setText("entregado");
+                   }else{
+                   txt_exp_motivos.setText("no entregado");
+                   }   
+                   
+                   if(carta==1){
+                   txt_cartaCompromiso.setText("entregado");
+                   }else{
+                   txt_cartaCompromiso.setText("no entregado");
+                   } 
+               
+               
+               
+             // /* 
+             String cad = "no entregado";
+           String cad2= txt_exp_motivos.getText();
+           String cad3=txt_cartaCompromiso.getText();
+             
+                if(cad.equals(cad2) || cad.equals(cad3)){
+                   JOptionPane.showMessageDialog(null,"el alumno no cuenta con  exposicion de motivos o carta compromiso");  
+                  
+                   String []asesor= new String[6];
+                   asesor[1]="sin asesor";
+                   modelo4.addRow(asesor);
+                }else{
+                   JOptionPane.showMessageDialog(null,"alumno valido");
+                   
+   //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   //busqueda de asesor para asignar
+            ResultSet rs = null;
+           var = javax.swing.JOptionPane.showInputDialog(this,"nombre de el asesor","Consulta asesor",javax.swing.JOptionPane.QUESTION_MESSAGE);
+            String sqla="SELECT* FROM  asesor WHERE nombre = '"+var+"'";
+             if(var == null)  
+             javax.swing.JOptionPane.showMessageDialog(this,"La accion fue cancelada","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            else {   
+            if (var.equals("")) {
+            javax.swing.JOptionPane.showMessageDialog(this,"Ingresar el nombre del asesor ","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            }else{
+        
+            try {
+            
+         
+               Class.forName("com.mysql.jdbc.Driver").newInstance();
+               con = DriverManager.getConnection(url,usuario,contraseña);
+               if (con!= null)
+                   System.out.println("Se ha establecido una conexion a la base de datos"+"\n"+url);
+               
+               stmt = con.createStatement();
+                rs = stmt.executeQuery(sqla);//variable que guarda info de la base de datos
               
             
                while(rs.next()) {  
@@ -705,18 +775,43 @@ public class creaLista extends javax.swing.JFrame {
                 }
                
                
+            }
+            catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null,"Error al extraer los datos de la tabla");
+             }
+            
+             }
+        
+             }
+        
+        
+   ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+   /////////////////////////////////////////////////////////////////////////////////////////////////////////////77
+                   
+                   
+                   }   
+                   
+                  
+                   
+               //   */ 
+               }  
+               
+               
         }
         catch (Exception e) {
             
             JOptionPane.showMessageDialog(null,"Error al extraer los datos de la tabla");
         }
-
-    }
-        
-        }          
-        
-   ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-   ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+   
+   
+   
+   
+ 
+   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////7
+   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
@@ -760,6 +855,7 @@ public class creaLista extends javax.swing.JFrame {
     private javax.swing.JButton btn_borraTodo;
     private javax.swing.JButton btn_buscaAlumno;
     private javax.swing.JButton btn_eliminarAlumno;
+    private javax.swing.JButton btn_terminarLista;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -801,7 +897,6 @@ public class creaLista extends javax.swing.JFrame {
     private javax.swing.JTextField txt_id;
     private javax.swing.JTextField txt_nom;
     private javax.swing.JTextField txt_nomAsesor;
-    private javax.swing.JButton txt_terminarLista;
     private javax.swing.JTextField txt_tmtesi;
     private javax.swing.JTextField txt_trabajo;
     // End of variables declaration//GEN-END:variables

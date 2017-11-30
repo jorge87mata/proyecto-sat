@@ -369,7 +369,7 @@ public class alumnos extends javax.swing.JFrame {
 
     private void txt_generacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_generacionKeyTyped
           char c =evt.getKeyChar();
-      if(c<'0'||c>'9'){
+      if((c<'0'||c>'9')&&(c<'-'||c>'-')){
           evt.consume();
       }
     }//GEN-LAST:event_txt_generacionKeyTyped
@@ -389,7 +389,7 @@ public class alumnos extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_trabajoKeyTyped
 
     private void btn_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aceptarActionPerformed
-       String cadena2,cadena3,cadena4,cadena5,cadena6,cadena7,cadena8,cadena9,cadena10,cadena11,cadena12,cadena13,cadena14;
+       String cad3,cad2,cad1,cadena2,cadena3,cadena4,cadena5="",cadena6="",cadena7,cadena8="",cadena9,cadena10,cadena11,cadena12,cadena13,cadena14;
       int exp_motivos=0,carta_com=0;  
       // obtener texto de los campos  de texfield
       //boolean resultado=jCheck_exposicion
@@ -397,10 +397,32 @@ public class alumnos extends javax.swing.JFrame {
         cadena2 = txt_nombre.getText();
         cadena3 = txt_apPaterno.getText();
         cadena4 = txt_apMaterno.getText();
+        cad2=txt_email.getText();
+        int res = cad2.indexOf("@");
+            if(res!=-1){
         cadena5 = txt_email.getText();
+            }else{
+        javax.swing.JOptionPane.showMessageDialog(this,"Ingrese un correo valido \n","¡AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        this.txt_email.setText("");
+            }
+        cad1=txt_cel.getText();
+            if(cad1.length()>=8&&cad1.length()<=10){
         cadena6 = txt_cel.getText();
+            }else{
+        javax.swing.JOptionPane.showMessageDialog(this,"Ingrese un numero valido \n","¡AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);        
+        this.txt_cel.setText("");
+            }
+        
         cadena7 = txt_carrera.getText();
+        cad3 =txt_generacion.getText();
+        int res2= cad3.indexOf("-");
+        if(cad3.length()>=9 && res2!=-1){
         cadena8 = txt_generacion.getText();
+            }else{
+            this.txt_generacion.setText("");
+            javax.swing.JOptionPane.showMessageDialog(this,"Ingrese la generacion en este formato xxxx-xxxx \n","¡AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            }
+        
         cadena9 = txt_tem_tesi.getText();
         cadena10 = txt_dir_tesi.getText();
         cadena11 = txt_trabajo.getText();
