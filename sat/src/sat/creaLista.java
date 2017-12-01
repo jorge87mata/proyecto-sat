@@ -123,9 +123,9 @@ public class creaLista extends javax.swing.JFrame {
         txt_tmtesi = new javax.swing.JTextField();
         txt_dirtesi = new javax.swing.JTextField();
         txt_trabajo = new javax.swing.JTextField();
-        btn_agregarLista = new javax.swing.JButton();
-        btn_eliminarAlumno = new javax.swing.JButton();
-        btn_borraTodo = new javax.swing.JButton();
+        btb_agregar_alumno = new javax.swing.JButton();
+        btn_eliminar_as = new javax.swing.JButton();
+        btn_borraTodo_as = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -147,6 +147,12 @@ public class creaLista extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         txt_exp_motivos = new javax.swing.JTextField();
         txt_cartaCompromiso = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        btn_agregaAseor = new javax.swing.JButton();
+        btn_eliminarAlumno1 = new javax.swing.JButton();
+        btn_borraTodo1 = new javax.swing.JButton();
+        btn_regresar = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
         jMenuItem1.setText("agregar");
@@ -186,8 +192,8 @@ public class creaLista extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 180, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        jLabel3.setText("lista de alumnos para agregar");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 220, -1));
+        jLabel3.setText("Lista de alumnos para agregar");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 220, -1));
 
         jtab_tablaGeneral.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -239,7 +245,7 @@ public class creaLista extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTab_tablaLista);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 350, 380));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 340, 380));
 
         btn_buscaAlumno.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         btn_buscaAlumno.setText("detalles de alumno");
@@ -280,32 +286,32 @@ public class creaLista extends javax.swing.JFrame {
         txt_trabajo.setEditable(false);
         getContentPane().add(txt_trabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 620, 70, -1));
 
-        btn_agregarLista.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        btn_agregarLista.setText("agregar a lista");
-        btn_agregarLista.addActionListener(new java.awt.event.ActionListener() {
+        btb_agregar_alumno.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        btb_agregar_alumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar.jpg"))); // NOI18N
+        btb_agregar_alumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_agregarListaActionPerformed(evt);
+                btb_agregar_alumnoActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_agregarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 500, -1, -1));
+        getContentPane().add(btb_agregar_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 500, 30, 30));
 
-        btn_eliminarAlumno.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        btn_eliminarAlumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ecommerce-pack.png"))); // NOI18N
-        btn_eliminarAlumno.addActionListener(new java.awt.event.ActionListener() {
+        btn_eliminar_as.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        btn_eliminar_as.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/quitar.jpg"))); // NOI18N
+        btn_eliminar_as.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_eliminarAlumnoActionPerformed(evt);
+                btn_eliminar_asActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_eliminarAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 500, 20, 20));
+        getContentPane().add(btn_eliminar_as, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 500, 30, 30));
 
-        btn_borraTodo.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        btn_borraTodo.setText("borrar toda la lista");
-        btn_borraTodo.addActionListener(new java.awt.event.ActionListener() {
+        btn_borraTodo_as.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        btn_borraTodo_as.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ades-icons.png"))); // NOI18N
+        btn_borraTodo_as.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_borraTodoActionPerformed(evt);
+                btn_borraTodo_asActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_borraTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 500, -1, -1));
+        getContentPane().add(btn_borraTodo_as, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 500, 40, 30));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel1.setText("nombre");
@@ -347,13 +353,13 @@ public class creaLista extends javax.swing.JFrame {
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, 30, 20));
 
         btn_terminarLista.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        btn_terminarLista.setText("terminar lista");
+        btn_terminarLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ecommerce-pack (1).png"))); // NOI18N
         btn_terminarLista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_terminarListaActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_terminarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 80, 120, -1));
+        getContentPane().add(btn_terminarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 510, 30, 30));
 
         jTable_asesor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -365,22 +371,22 @@ public class creaLista extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(jTable_asesor);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 110, 290, 380));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 110, 300, 380));
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
-        jLabel12.setText("nombre");
+        jLabel12.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        jLabel12.setText("Nombre");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 70, -1));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        jLabel13.setText("cubiculo");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
+        jLabel13.setText("Cubiculo");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 70, -1));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        jLabel14.setText("horario");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, -1));
+        jLabel14.setText("Horario");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 70, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        jLabel15.setText("correo");
+        jLabel15.setText("Correo");
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, 50, -1));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
@@ -393,14 +399,61 @@ public class creaLista extends javax.swing.JFrame {
         getContentPane().add(txt_exp_motivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 620, 90, -1));
         getContentPane().add(txt_cartaCompromiso, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 620, 110, -1));
 
+        jLabel18.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        jLabel18.setText("Terminar lista");
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 520, -1, -1));
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        jLabel19.setText("Lista de asesores para agregar");
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 80, 240, -1));
+
+        btn_agregaAseor.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        btn_agregaAseor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar.jpg"))); // NOI18N
+        btn_agregaAseor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agregaAseorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_agregaAseor, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 500, 30, 30));
+
+        btn_eliminarAlumno1.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        btn_eliminarAlumno1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/quitar.jpg"))); // NOI18N
+        btn_eliminarAlumno1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminarAlumno1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_eliminarAlumno1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 500, 30, 30));
+
+        btn_borraTodo1.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        btn_borraTodo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ades-icons.png"))); // NOI18N
+        btn_borraTodo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_borraTodo1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_borraTodo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 500, 40, 30));
+
+        btn_regresar.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        btn_regresar.setText("Regresar");
+        btn_regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_regresarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 610, 100, 30));
+
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.jpg"))); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 670));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1080, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_buscaAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscaAlumnoActionPerformed
        
+       int resp = JOptionPane.showConfirmDialog(null, "¿acepta terminos y condiciones?");
+        if(resp==0){
+        
         ResultSet rs = null; 
          var = javax.swing.JOptionPane.showInputDialog(this,"nombre de el alumno","Consulta alumnos",javax.swing.JOptionPane.QUESTION_MESSAGE);
         String sql="SELECT* FROM  alumnos WHERE nombre = '"+var+"'";
@@ -478,6 +531,9 @@ public class creaLista extends javax.swing.JFrame {
     }
         
         }
+        }else{
+        JOptionPane.showMessageDialog(null,"la informacion no se puede mostrar por efectos de privacidad");
+        }
     }//GEN-LAST:event_btn_buscaAlumnoActionPerformed
 
     private void btn_agregarAsesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarAsesorActionPerformed
@@ -532,13 +588,17 @@ public class creaLista extends javax.swing.JFrame {
         }
 
     }
+                        
+       
+               
+               }
         
-        }
     }//GEN-LAST:event_btn_agregarAsesorActionPerformed
 
-    private void btn_agregarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarListaActionPerformed
+    private void btb_agregar_alumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btb_agregar_alumnoActionPerformed
         if(txt_nom.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"selecciona un alumno");
+            JOptionPane.showMessageDialog(null,"Revise los detalles del alumno \n "
+                                               + "para poder agregarlo");
         }else{
          
              String []Filas = new String[6];     
@@ -567,23 +627,23 @@ public class creaLista extends javax.swing.JFrame {
                           
                    modelo2.addRow(Filas); //agrega a las filas    
         }  
-    }//GEN-LAST:event_btn_agregarListaActionPerformed
+    }//GEN-LAST:event_btb_agregar_alumnoActionPerformed
 
-    private void btn_eliminarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarAlumnoActionPerformed
+    private void btn_eliminar_asActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminar_asActionPerformed
          int filaseleccionada=jTab_tablaLista.getSelectedRow();
             if(filaseleccionada>=0){
                 modelo2.removeRow(filaseleccionada);
             }else{
             JOptionPane.showMessageDialog(null,"seleccione un alumno");
             }
-    }//GEN-LAST:event_btn_eliminarAlumnoActionPerformed
+    }//GEN-LAST:event_btn_eliminar_asActionPerformed
 
-    private void btn_borraTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_borraTodoActionPerformed
+    private void btn_borraTodo_asActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_borraTodo_asActionPerformed
        int numRenglon=jTab_tablaLista.getRowCount();
         for(int i=numRenglon-1;i>=0;i--){
         modelo2.removeRow(i);
         }
-    }//GEN-LAST:event_btn_borraTodoActionPerformed
+    }//GEN-LAST:event_btn_borraTodo_asActionPerformed
 
     private void btn_terminarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_terminarListaActionPerformed
         int numRe=jTab_tablaLista.getRowCount();
@@ -814,6 +874,92 @@ public class creaLista extends javax.swing.JFrame {
    
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void btn_agregaAseorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregaAseorActionPerformed
+         ResultSet rs = null; 
+         var = javax.swing.JOptionPane.showInputDialog(this,"nombre de el asesor","Consulta asesor",javax.swing.JOptionPane.QUESTION_MESSAGE);
+        String sql="SELECT* FROM  asesor WHERE nombre = '"+var+"'";
+        if(var == null)  
+        javax.swing.JOptionPane.showMessageDialog(this,"La accion fue cancelada","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+      else {   
+        if (var.equals("")) {
+            javax.swing.JOptionPane.showMessageDialog(this,"Favor de ingresar el nombre del asesor ","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        }else{
+        
+        try {
+            
+            String url = "jdbc:mysql://localhost:3306/Sat";
+            String usuario = "root";
+            String contraseña = "itachi";  
+            
+               Class.forName("com.mysql.jdbc.Driver").newInstance();
+               con = DriverManager.getConnection(url,usuario,contraseña);
+               if (con!= null)
+                   System.out.println("Se ha establecido una conexion a la base de datos"+"\n"+url);
+               
+               stmt = con.createStatement();
+                rs = stmt.executeQuery(sql);//variable que guarda info de la base de datos
+              
+            
+              while(rs.next()) {  
+                   
+                String id = rs.getString("id");
+                String nomA = rs.getString("nombre");
+                String cub = rs.getString("cubiculo");
+                String corA = rs.getString("correo electronico");
+                String hora = rs.getString("horario de asesoria");
+                
+                 
+                   txt_nomAsesor.setText(nomA);
+                   txt_cubiculo.setText(cub);
+                   txt_correo2.setText(corA);
+                   txt_horario.setText(hora);
+                   
+                   String []asesor= new String[6];            
+                   asesor[0]=id;
+                   asesor[1]=nomA;
+                   asesor[2]=cub;
+                   asesor[3]=hora;
+                   
+                   modelo4.addRow(asesor);
+                }
+               
+               
+        }
+        catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null,"Error al extraer los datos de la tabla");
+        }
+
+    }
+                        
+       
+               
+               }
+        
+    }//GEN-LAST:event_btn_agregaAseorActionPerformed
+
+    private void btn_eliminarAlumno1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarAlumno1ActionPerformed
+         int filaseleccionada=jTable_asesor.getSelectedRow();
+            if(filaseleccionada>=0){
+                modelo4.removeRow(filaseleccionada);
+            }else{
+            JOptionPane.showMessageDialog(null,"seleccione un alumno");
+            }
+    }//GEN-LAST:event_btn_eliminarAlumno1ActionPerformed
+
+    private void btn_borraTodo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_borraTodo1ActionPerformed
+        int numRenglon=jTable_asesor.getRowCount();
+        for(int i=numRenglon-1;i>=0;i--){
+        modelo4.removeRow(i);
+        }
+    }//GEN-LAST:event_btn_borraTodo1ActionPerformed
+
+    private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
+          this.dispose();//oculta
+        logueo p= new logueo();//instancia de la clase usuario
+        p.setVisible(true);//lo hace visible
+    }//GEN-LAST:event_btn_regresarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -850,11 +996,15 @@ public class creaLista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btb_agregar_alumno;
+    private javax.swing.JButton btn_agregaAseor;
     private javax.swing.JButton btn_agregarAsesor;
-    private javax.swing.JButton btn_agregarLista;
-    private javax.swing.JButton btn_borraTodo;
+    private javax.swing.JButton btn_borraTodo1;
+    private javax.swing.JButton btn_borraTodo_as;
     private javax.swing.JButton btn_buscaAlumno;
-    private javax.swing.JButton btn_eliminarAlumno;
+    private javax.swing.JButton btn_eliminarAlumno1;
+    private javax.swing.JButton btn_eliminar_as;
+    private javax.swing.JButton btn_regresar;
     private javax.swing.JButton btn_terminarLista;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel1;
@@ -866,6 +1016,8 @@ public class creaLista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

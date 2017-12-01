@@ -33,6 +33,7 @@ public class lista extends javax.swing.JFrame {
         salir = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTab_tabla4 = new javax.swing.JTable();
+        btn_regresar = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,7 +58,7 @@ public class lista extends javax.swing.JFrame {
         jLabel5.setText("lista de alumnos");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 220, 30));
 
-        salir.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        salir.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         salir.setText("salir");
         salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,8 +82,17 @@ public class lista extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 340, 430));
 
+        btn_regresar.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        btn_regresar.setText("Regresar");
+        btn_regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_regresarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 510, -1, 30));
+
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.jpg"))); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 610));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -50, 820, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -90,6 +100,12 @@ public class lista extends javax.swing.JFrame {
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         this.dispose();
     }//GEN-LAST:event_salirActionPerformed
+
+    private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
+          this.dispose();//oculta
+        logueo p= new logueo();//instancia de la clase usuario
+        p.setVisible(true);//lo hace visible
+    }//GEN-LAST:event_btn_regresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,6 +143,7 @@ public class lista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_regresar;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;

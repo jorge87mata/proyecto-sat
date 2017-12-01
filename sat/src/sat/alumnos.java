@@ -321,7 +321,7 @@ public class alumnos extends javax.swing.JFrame {
         getContentPane().add(btn_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, -1, 30));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.jpg"))); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 510));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -389,7 +389,8 @@ public class alumnos extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_trabajoKeyTyped
 
     private void btn_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aceptarActionPerformed
-       String cad3,cad2,cad1,cadena2,cadena3,cadena4,cadena5="",cadena6="",cadena7,cadena8="",cadena9,cadena10,cadena11,cadena12,cadena13,cadena14;
+       
+      String cad3,cad2,cad1,cadena2,cadena3,cadena4,cadena5="",cadena6="",cadena7,cadena8="",cadena9,cadena10,cadena11,cadena12,cadena13,cadena14;
       int exp_motivos=0,carta_com=0;  
       // obtener texto de los campos  de texfield
       //boolean resultado=jCheck_exposicion
@@ -455,7 +456,23 @@ public class alumnos extends javax.swing.JFrame {
                     
         else {
         
-            try {
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+             int resp = JOptionPane.showConfirmDialog(null, "Por medio del presente aviso y en cumplimiento con los artículos 3, 7, 15, 16 y relativos de la Ley de Protección de Datos Personales \n "
+                                                          + "en Posesión de Particulares (la \"Ley\") notificamos a usted que la información personal que nos ha entregado que puede ser utilizada \n  "
+                                                          + "para identificarle y ser considerada como sensible de acuerdo con la Ley. En este acto da su autorización expresa para que dicha información personal \n "
+                                                          + "pueda ser utilizada por este software y/o sus empresas filiales y/o subsidiarias en México y/o en el extranjero (las \"Sociedades\")\n "
+                                                          + "para efecto de:(i) negociación de términos y condiciones de contratos, (ii) análisis y elaboración de reportes estadísticos,(iii)\n"
+                                                          + "control de expedientes de clientes, proveedores y prestadores de servicios y (vi) cualquier otra actividad relacionada con el objeto social de las Sociedades.\n" 
+                                                          +"Así mismo le informamos que su información personal será mantenida por las Sociedades en bases de datos propiedad de dichas Sociedades \n"
+                                                          + " y solo será utilizada de manera justificada y siempre en cumplimiento con la Ley. De conformidad con los artículos 22, 24, 25 y relativos \n"
+                                                          + " de la Ley usted tiene el derecho a solicitar modificaciones a toda o parte de su información personal y a que dicha información sea retirada \n "
+                                                          + "total o parcialmente de las bases de datos de las Sociedades. Las Sociedades no son ni serán responsables por la veracidad de la información personal que usted proporcione,\n"
+                                                          + " ni de su verificación y/o actualización, por lo que si usted no solicita el cambio o modificación de información deberá asumirse que la información es precisa y verdadera \n "
+                                                          + "con todas las implicaciones que esto conlleve, siendo usted el único responsable por la información personal proporcionada y sus consecuencias. \n"
+                                                          + "¿Acepta terminos y condiciones?");
+             if(resp==0){
+             
+          try {
            //enlase a base de datos  en mysql
            //agregar libreria clik derecho addJAR/folder
            //se agrega  mysql-conector-java-bin.jar
@@ -497,7 +514,12 @@ public class alumnos extends javax.swing.JFrame {
         }
          javax.swing.JOptionPane.showMessageDialog(this,"Registro exitoso! \n","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
          bandera=true;
-      }
+     }else{
+            javax.swing.JOptionPane.showMessageDialog(this,"La accioon fue cancelada \n por rechazar terminis y condiciones ","AVISO!",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+              
+           }        
+ /////////////////////////////////////////////////////////////////////////////////////////////////////////                   
+     }
                        
         //inicializa datos despues de registrar            
         
@@ -518,7 +540,10 @@ public class alumnos extends javax.swing.JFrame {
         this.jCheck_exposicion.setSelected(false);
         this.jCheck_cartaCompromiso.setSelected(false);
         
+        
+     
         }
+        
     }//GEN-LAST:event_btn_aceptarActionPerformed
 
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
